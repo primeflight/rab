@@ -21,9 +21,7 @@ class Search:
         if prefix in self.cache:
             return self.cache[prefix]
 
-        filtered_aircraft = [
-            aircraft for aircraft in self.json_data if aircraft["MARCA"] == prefix
-        ]
+        filtered_aircraft = [aircraft for aircraft in self.json_data if aircraft["MARCA"] == prefix]
 
         self.cache[prefix] = filtered_aircraft
         return filtered_aircraft
