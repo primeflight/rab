@@ -8,7 +8,7 @@ class Search:
     def __init__(self):
         self.json_data = None
         self.cache = {}
-        self.local_directory = "dados_aeronaves"
+        self.local_directory = "aircraft_data"
         self.file_extension = ".json"
 
     def get_local_filename(self):
@@ -17,6 +17,9 @@ class Search:
 
     def update_data(self):
         local_filename = self.get_local_filename()
+
+        if not os.path.exists(self.local_directory):
+            os.makedirs(self.local_directory)
 
         if os.path.exists(local_filename):
             with open(local_filename, "r", encoding="utf-8") as file:
